@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block toggle_login %}{% endblock %}
+
+
+{% block contents_connexion %}
+<form action="{% url "pronos_WC_login" %}" method="post" accept-charset="utf-8">
+    {{ form|crispy }}
+    {% csrf_token %}
+    <input type="hidden" name="next" value="{{ next }}" />
+    <input class="btn btn-default" type="submit" value="Login" />
+</form>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %} {% block contents %}
+	<h1 class="page-header">Mes pronostics</h1>
+	<div class="table-responsive">
+		<table class="table table-striped">
+		    {% for pronostic in pronostic_list %}
+		    	<tr>
+		    		<td>{{ match.date }}
+		    		<td class="text-center"><img src="{{ pronostic.match.equipe1.drapeau_thumbnail.url }}" /> 
+		    		<td class="text-center">{{ pronostic.match.equipe1.nom }}
+		    		<td class="text-center">{{ pronostic.equipe1_result }}
+		    		<td class="text-center">-
+		    		<td class="text-center">{{ pronostic.equipe2_result }}
+		    		<td class="text-center">{{ pronostic.match.equipe2.nom }} 
+		    		<td class="text-center"><img src="{{ pronostic.match.equipe2.drapeau_thumbnail.url }}" />
+		    	</tr>
+		    {% endfor %} 
+	</div>
+{% endblock contents %} 

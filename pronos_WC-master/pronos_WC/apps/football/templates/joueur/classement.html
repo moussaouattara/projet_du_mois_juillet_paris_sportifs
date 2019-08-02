@@ -1,0 +1,21 @@
+{% extends "base.html" %} {% block contents %}
+	<h1 class="page-header">Classement des participants</h1>
+	<div class="table-responsive">
+		<table class="table table-striped">
+			<tr>
+				<th>Classement
+				<th>Nom
+				<th>Prénom
+				<th>Points
+
+
+		    {% for joueur in joueur_list %}
+		    	<tr>
+		    		<td>{{ forloop.counter }}
+		    		<td>{{ joueur.user.last_name }}
+		    		<td>{{ joueur.user.first_name }}
+		    		<td>{{ joueur.points }}
+		    {% endfor %} 
+	</div>
+
+{% endblock contents %} 

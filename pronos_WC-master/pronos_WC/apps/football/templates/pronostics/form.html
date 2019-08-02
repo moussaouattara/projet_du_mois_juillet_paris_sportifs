@@ -1,0 +1,23 @@
+{% extends "base.html" %} {% block contents %}
+	<h1 class="page-header">Match à venir</h1>
+	<div class="table-responsive">
+		<table class="table table-striped">
+		    {% for match in match_list %}
+		    	<form action="{% url "pronos_WC_create_pronostic" %}" method="post" accept-charset="utf-8">
+		    	{% csrf_token %}
+		    	<input type="hidden" name="match_id" value="{{ match.id }}" />
+		    	<tr>
+		    		<td>{{ match.date }}
+		    		<td class="text-center"><img src="{{ match.equipe1.drapeau_thumbnail.url }}" /> 
+		    		<td class="text-center">{{ match.equipe1.nom }}
+		    		<td class="text-center"><input type="text" name="equipe1_score" value="" />
+		    		<td class="text-center">-
+		    		<td class="text-center"><input type="text" name="equipe2_score" value="" />
+		    		<td class="text-center">{{ match.equipe2.nom }} 
+		    		<td class="text-center"><img src="{{ match.equipe2.drapeau_thumbnail.url }}" />
+		    		<td><input class="btn btn-default" type="submit" value="Enregistrer mes pronostics" />
+		    	</tr>
+		    	</form>
+		    {% endfor %} 
+	</div>
+{% endblock contents %} 
